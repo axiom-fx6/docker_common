@@ -1,0 +1,33 @@
+# ubuntu python
+
+# Python is already installed but cannot run by just runnig Python.
+# you need to put a shortcut in /usr/bin/ by running
+sudo apt install python-is-python3
+
+# To verify
+ls -al /usr/bin/ | grep python
+
+
+# To create a virtual env of a specific python version
+# Install the specific venv package
+# Ubuntu requires this for every individual Python version
+
+# you need to add the Deadsnakes PPA, which is the official community repository 
+# that maintains every version of Python for Ubuntu.
+
+# Install software properties:Required to manage third-party repositories
+
+sudo apt install software-properties-common
+
+# Add the Deadsnakes PPA
+# Press Enter when it prompts you to confirm
+
+sudo add-apt-repository ppa:deadsnakes/ppa
+
+# refresh package list
+sudo apt update
+
+# install venv pack (python3.11-venv is dependant on python3.11)
+sudo apt install python3.11 python3.11-venv
+
+# create virtual env

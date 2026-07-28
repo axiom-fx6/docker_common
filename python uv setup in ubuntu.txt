@@ -1,0 +1,33 @@
+# installation
+# https://docs.astral.sh/uv/getting-started/installation/
+
+# create a simple project structure (most cases)
+uv init --python 3.11 app
+
+# install pkg. this also creates .venv
+uv add flask requests
+
+# get dependecy tree
+uv tree
+
+# In terminal, no need to activate venv
+
+uv run main.py
+
+--/projects/new_app/.venv/bin/python3
+--Hello from new-app!
+
+
+/**************************/
+# if we remove venv
+rm -rf .venv
+
+# this recreates the venv wo running code
+uv sync
+
+# this recreates the venv
+uv run main.py
+/**************************/
+
+# list all packages installed
+uv pip list

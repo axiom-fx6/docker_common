@@ -1,0 +1,66 @@
+#quick test scirpt
+docker container run --publish 27017:27017 --detach --name my-mongo mongo:latest
+docker start <container>
+docker stop <container>
+
+docker version
+
+docker info
+
+docker ps
+
+docker run -p <HOST_PORT>:<CONTAINER_PORT> <IMAGE_NAME>
+
+
+# show running containers
+docker container ls
+
+# show all containers
+docker container ls -a
+
+# run with a name
+docker container run --publish 80:80 --detach --name webhost nginx
+
+# get log events of a container
+docker container logs <container>
+
+# get processes in a container
+docker container top <container>
+# matching processes only works on standalone Linux
+ps aux
+
+# remove container
+docker container rm <container>
+
+# remove container (including running)
+docker container rm -f <container>
+
+# get live streaming data of containers
+docker container stats
+
+# in a container
+# -it t is psudo tty, i keeps the session open
+# this container only runs as far as the command on the startup lines, in this case "bash"
+docker container run -it --name proxy nginx bash
+
+# start a ubuntu container (container has minimal installation of ubuntu)
+docker container run -it --name ubuntu ubuntu
+# you exit and get back in
+docker container start -ai ubuntu
+
+# run additional commands in an existing container, for example for troubleshooting
+docker container exec -it <container> bash
+
+# cannot run things not in the image, ex. alpine doesn't have bash
+docker container run -it alpine sh
+
+# get the container ports
+docker container port <container>
+
+# find ip of a running container:
+docker inspect <container_id>  --format='{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
+
+# get to nginx passing proxy
+curl --noproxy '*' <IPAddress>
+
+

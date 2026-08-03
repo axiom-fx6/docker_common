@@ -1,4 +1,5 @@
-#quick test scirpt
+# quick test scirpt
+
 docker container run --publish 27017:27017 --detach --name my-mongo mongo:latest
 docker start <container>
 docker stop <container>
@@ -54,6 +55,8 @@ docker container exec -it <container> bash
 # cannot run things not in the image, ex. alpine doesn't have bash
 docker container run -it alpine sh
 
+-------------network-------------------
+
 # get the container ports
 docker container port <container>
 
@@ -63,4 +66,18 @@ docker inspect <container_id>  --format='{{range.NetworkSettings.Networks}}{{.IP
 # get to nginx passing proxy
 curl --noproxy '*' <IPAddress>
 
+# return default brdige Network
+docker network inspect brdige
 
+# create network
+docker network create my_app_net
+
+# create container in a network
+# might need to stop other containers allocated the same port
+docker container run --publish 80:80 --detach --name webhost_in_network --network my_app_net nginx
+
+# add an existing container to a network
+docker network connect <network> <container_id>
+
+# remove an existing container from a network
+docker network disconnect <network> <container_id>

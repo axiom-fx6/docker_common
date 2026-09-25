@@ -45,10 +45,12 @@ docker container stats
 docker container run -it --name proxy nginx bash
 
 # start a ubuntu container (container has minimal installation of ubuntu)
+# it also starts the bin/bash instead of the bash pointer
 docker container run -it --name ubuntu ubuntu
-# you exit and get back in
+# you exit and get back in (you dont need -t as the container is already built with tty)
 docker container start -ai ubuntu
 
+# open an interactive Bash shell session inside an already running Docker container
 # run additional commands in an existing container, for example for troubleshooting
 docker container exec -it <container> bash
 
@@ -81,3 +83,11 @@ docker network connect <network> <container_id>
 
 # remove an existing container from a network
 docker network disconnect <network> <container_id>
+
+# ping another container using DNS 
+# the default bridge network doesn't assign dns name for containers
+# so it is easier to simply create a new network
+docker container exec -it my_nginx ping new_nginx 
+
+# delete the contaienr as soon as execution completes
+  docker container run -it --rm --name centos-cli centos:7 bash

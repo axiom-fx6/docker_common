@@ -41,7 +41,8 @@ docker container stats
 
 # in a container
 # -it t is psudo tty, i keeps the session open
-# with just i, your prompt is open but there is no connect between the container and your keyboard, so you cannot ls or exit.
+## with just i, your prompt is open but there is no connect between the container and your keyboard, so you cannot ls or exit.
+## with just t, you can have the prompt but there is not foramtting in the. 
 # this container only runs as far as the command on the startup lines, in this case "bash"
 docker container run -it --name proxy nginx bash
 

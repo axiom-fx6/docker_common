@@ -1,0 +1,14 @@
+# list all docker images
+docker image list
+
+# get image layers
+docker history nginx:latest 
+
+# containers are basically running process of the image and
+# the files that are different from the image
+
+
+# download a image org/image
+docker pull mysql/mysql-server
+ 
+ 

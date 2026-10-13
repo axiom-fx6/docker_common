@@ -10,4 +10,4 @@ docker history nginx:latest
 # download a image org/image.
 docker pull mysql/mysql-server
 
-# this code is production not ready
+# this code is production ready

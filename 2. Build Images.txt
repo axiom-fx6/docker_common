@@ -10,3 +10,6 @@ docker history nginx:latest
 # download a image org/image
 docker pull mysql/mysql-server
  
+# we added a new line here 
+
+# we added a second new line here
